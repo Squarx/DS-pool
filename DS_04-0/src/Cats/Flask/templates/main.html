@@ -1,0 +1,61 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_main.css') }}">
+    <title>Main Page</title>
+</head>
+<body>
+<div class="main">
+<h2 class="welcome-header">Welcome</h2>
+<hr>
+<h3 class="header_lvl3">Annotation</h3>
+<div class="annotation_text">
+    <p>Using page you are able to find the cat corresponding to the selected error code</p>
+    <p>Instructions</p>
+    <li>Push the button "Get list" to see all numbers
+    </li>
+    <li>Write a INTEGER num to get an image
+    </li>
+</div>
+<hr>
+<div>
+    <h3 class="header_lvl3">Notifications</h3>
+    <p class="annotation_text">If there is no valid cat, default = 404</p>
+    <hr>
+</div>
+<form method="post" action="/main" class="for_input">
+    <input type="text" name="num" class="your-input" placeholder="Write an integer here">
+    <button type="submit">Find cat</button>
+</form>
+<!--<form method="post" action="/add_message">-->
+<!--    <input type="text" name="text">-->
+<!--    <input type="text" name="tag">-->
+<!--    <button type="submit">Add message</button>-->
+<!--</form>-->
+<form name="IMG">
+<p style="display: flex; justify-content: center;">
+    <img id="picture" style="display: none; border-radius: 40px;" onload="this.style.display='block'" src="data:image/jpeg;base64,{{ img_data }}" >
+</p>
+</form>
+<h3>List of available cats</h3>
+<form action="/update">
+    <button type="submit">Get list of cats</button>
+    <div class="columns">
+    {% for cat in cats %}
+        <div><p>{{ cat }}</p></div>
+    {% endfor %}
+    </div>
+
+</form>
+<h3>Messages list</h3>
+{% for message in messages %}
+<div>{{ message.text}}&nbsp;<i>{{ message.tag }}</i></div>
+{% endfor %}
+
+</div>
+</body>
+</html>

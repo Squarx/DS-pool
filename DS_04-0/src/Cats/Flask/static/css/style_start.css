@@ -1,0 +1,31 @@
+html {
+  height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body {
+  background: linear-gradient(to right bottom, #dfa2ac, #a2a2d1);
+
+}
+.Greetings{
+    text-align: center;
+    font-size : 40px;
+}
+.normal_text {
+    font-size: 30px;
+}
+.table_3{
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: flex;
+    height: 100vh;
+}
+
+/*.li_3{*/
+/*    flex: 1 0 25%;*/
+/*}*/
+/*ul {*/
+/*   -webkit-column-count: 3;*/
+/*    -moz-column-count: 3;*/
+/*    column-count: 3;*/
+/*}*/

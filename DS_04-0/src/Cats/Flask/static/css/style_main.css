@@ -1,0 +1,70 @@
+html {
+  height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body {
+    margin: 0;
+}
+.welcome-header {
+      margin: 0 0 40px 0;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.your-input {
+    text-align: center;
+    width: 200px;
+}
+.header_lvl3{
+    font-size: 30px;
+}
+.annotation_text{
+    font-size: 25px;
+}
+.for_input{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.for_input > input {
+    padding: 10px;
+    width: 255px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: none;
+}
+
+.for_input > button {
+    padding: 10px;
+    width: 280px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: none;
+    transition: 1s;
+}
+
+.for_input > button:hover {
+    background: #FF3652FF;
+    color: white;
+}
+
+.main {
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+    height: 100%;
+    background: linear-gradient(to right bottom, #dfa2ac, #a2a2d1);
+}
+
+.columns {
+    column-count: 3;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<!--	 <link rel="stylesheet" type="text/css" href="../static/css/style.css">-->
+	<title>Document</title>
+</head>
+<body>
+<h1 class="Greetings">Hello, {{ name }}!</h1>
+<br>
+<hr>
+<h3>
+	{% if develop == True %}
+	<p1>List of got resourses</p1>
+	{% set i = 0 %}
+	{% for element in list_get%}
+		<p>{{ i }}: {{ element }}</p>
+		{%  set i = i + 1 %}
+	{% endfor %}
+	{% endif %}
+	
+	
+</h3>
+<form method="POST" class="for_input">
+    <label for="form-type">Выберите форму:</label>
+    <select id="form-type" name="form1">
+        <option value="data" {% if default_value == '1' %}selected{% endif %} >Specific data</option>
+        <option value="cnt"  {% if default_value == '2' %}selected{% endif %} >Random N images</option>
+	    <option value="rng"  {% if default_value == '3' %}selected{% endif %} >Range of data</option>
+    </select>
+	    <button type="submit" >Confirm form</button>
+	<br>
+
+    {% if form_content %}
+    <div>
+	    <p>From content = {{ form_content }}</p>
+    </div>
+    {% endif %}
+	{% if switch %}
+	    {% if switch == 'data' %}
+	
+			<form method="post"  class="for_input">
+			    <input type="text" name="date0" class="your-input" placeholder="Write YYYY-MM-DD">
+			    <button type="submit">Submit data</button>
+				
+			</form>
+		{% elif switch == 'cnt' %}
+	
+			<form method="post" class="for_input">
+			    <input type="text" name="num" class="your-input" placeholder="Write an integer">
+			    <button type="submit">Submit data</button>
+				
+			</form>
+		{% elif switch == 'rng' %}
+
+			<form method="post" class="for_input">
+			<input type="text" name="date1" class="your-input" placeholder="Write start YYYY-MM-DD">
+		    <input type="text" name="date2" class="your-input" placeholder="Write end YYYY-MM-DD">
+		    <button type="submit">Submit data</button>
+				
+			</form>
+	    {% endif %}
+	{% endif %}
+	</form>
+    <br><br>
+<hr>
+
+<!--{% for element in elements %}-->
+<!--	{% for k,v in element.items() %}-->
+<!--		<p>{{ k }}: {{ v }}</p>-->
+<!--	{% endfor %}-->
+<!--	<br>-->
+<!--	<hr>-->
+<!--{% endfor %}-->
+
+{% if elements %}
+<div>
+{% for element in elements %}
+	<p class="content-date">Date : {{ element['date'] }}</p>
+	<p class="content-expl">Explanation:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{ element['explanation'] }}</p>
+	<p style="text-align: center; font-size: 40px;">Title: {{ element['title'] }}</p>
+	<div class="content-img">
+	<img class="content-img-item" src="{{ element['url'] }}">
+	</div>
+	
+	
+	<br>
+	<hr>
+{% endfor %}
+</div>
+{% else %}
+	<br>
+{% endif %}
+</body>
+</html>

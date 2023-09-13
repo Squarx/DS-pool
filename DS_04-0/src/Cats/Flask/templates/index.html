@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greetings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_start.css') }}">
+</head>
+<body>
+<h1 class="Greetings">Hello, Peer</h1>
+<hr>
+<!--<a href="http://localhost/main">Main page</a>-->
+<p class="normal_text">Here is some useful links</p>
+<ul class="normal_text">
+    <li title="It is the main page"><a href="{{ url_for('main') }}">Main page</a></li>
+    <li><a href= "https://http.cat/" >Original page</a></li>
+</ul>
+
+<p class="normal_text">Here is no more interesting for you</p>
+<hr>
+
+</body>
+</html>
